@@ -11159,5 +11159,29 @@
         "standard": "none"
       }
     ]
+  },
+  {
+    "name": "ZetaChain Development Testnet",
+    "chain": "ZetaChain",
+    "icon": "Zetachain",
+    "rpc": ["https://api.development.zetachain.com/evm"],
+    "faucets": ["https://labs.zetachain.com/get-zeta"],
+    "nativeCurrency": {
+      "name": "Zeta",
+      "symbol": "dZETA",
+      "decimals": 18
+    },
+    "infoURL": "https://docs.zetachain.com/",
+    "shortName": "zetachain-development",
+    "chainId": 101,
+    "networkId": 101,
+    "status": "active",
+    "explorers": [
+      {
+        "name": "ZetaChain Athens Testnet Explorer",
+        "url": "https://explorer.development.zetachain.com",
+        "standard": "none"
+      }
+    ]
   }
 ]

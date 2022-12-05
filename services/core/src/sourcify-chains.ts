@@ -585,6 +585,14 @@ const sourcifyChains: SourcifyChainsObject = {
     txRegex: getBlockscoutRegex(),
     rpc: ["https://archive.athens2.zetachain.com/evm"],
   },
+  "101": {
+    // ZetaChain: Development Testnet
+    supported: true,
+    monitored: false,
+    contractFetchAddress: "https://blockscout.development.zetachain.com/" + BLOCKSCOUT_SUFFIX,
+    txRegex: getBlockscoutRegex(),
+    rpc: ["https://archive.development.zetachain.com/evm"],
+  },
 };
 
 export default sourcifyChains;

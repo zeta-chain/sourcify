@@ -45,5 +45,14 @@ export default {
     /^https?:\/\/(?:.+\.)?sourcify.eth.link$/, // sourcify.eth.link and subdomains
     /^https?:\/\/(?:.+\.)?ipfs.dweb.link$/, // dweb links used by Brave browser etc.
     process.env.NODE_ENV === "development" && /^https?:\/\/localhost(?::\d+)?$/, // localhost on any port
+    process.env.NODE_ENV === "development" && /^https?:\/\/(?:.+\.)?development.zetachain.com$/,
+    process.env.NODE_ENV === "development" && /^https?:\/\/(?:.+\.)?server.development.zetachain.com$/,
+    process.env.NODE_ENV === "development" && /^https?:\/\/(?:.+\.)?repo.development.zetachain.com$/,
+    process.env.NODE_ENV === "athens" && /^https?:\/\/(?:.+\.)?athens2.zetachain.com$/,
+    process.env.NODE_ENV === "athens" && /^https?:\/\/(?:.+\.)?server.athens2.zetachain.com$/,
+    process.env.NODE_ENV === "athens" && /^https?:\/\/(?:.+\.)?repo.athens2.zetachain.com$/,
+    process.env.NODE_ENV === "production" && /^https?:\/\/(?:.+\.)?production.zetachain.com$/,
+    process.env.NODE_ENV === "production" && /^https?:\/\/(?:.+\.)?server.production.zetachain.com$/,
+    process.env.NODE_ENV === "production" && /^https?:\/\/(?:.+\.)?repo.production.zetachain.com$/,
   ],
 };
