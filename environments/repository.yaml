@@ -20,7 +20,10 @@ networks:
 services:
   repository:
     <<: *project-base
-    image: ethereum/source-verify:repository-${TAG}
+    #image: ethereum/source-verify:repository-${TAG}
+    build:
+      context: ../h5ai-nginx # Point to the /h5ai-nginx folder - use `git submodule update --init --recursive` to get it
+      dockerfile: Dockerfile
     container_name: repository-${TAG}
     volumes:
       - <<: *project-repository-mount
