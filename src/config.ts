@@ -48,6 +48,11 @@ export default {
     /^https?:\/\/(?:.+\.)?sourcify.eth$/, // sourcify.eth and subdomains
     /^https?:\/\/(?:.+\.)?sourcify.eth.link$/, // sourcify.eth.link and subdomains
     /^https?:\/\/(?:.+\.)?ipfs.dweb.link$/, // dweb links used by Brave browser etc.
+    /^https?:\/\/(?:.+\.)?zetachain.com$/,
+    /^https?:\/\/(?:.+\.)?explorer.zetachain.com$/,
+    /^https?:\/\/(?:.+\.)?development.zetachain.com$/,
+    /^https?:\/\/(?:.+\.)?athens.zetachain.com$/,
+    /^https?:\/\/(?:.+\.)?athens2.zetachain.com$/,
     process.env.NODE_ENV === "development" && /^https?:\/\/localhost(?::\d+)?$/, // localhost on any port
     process.env.NODE_ENV === "development" && /^https?:\/\/(?:.+\.)?development.zetachain.com$/,
     process.env.NODE_ENV === "development" && /^https?:\/\/(?:.+\.)?server.development.zetachain.com$/,
