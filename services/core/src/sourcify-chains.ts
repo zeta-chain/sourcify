@@ -1,5 +1,6 @@
 import * as dotenv from "dotenv";
 import path from "path";
+import { SourcifyEventManager } from "./services/EventManager";
 
 dotenv.config({
   path: path.resolve(__dirname, "..", "..", "..", "environments/.env"),
@@ -47,9 +48,9 @@ function buildAlchemyAndCustomRpcURLs(
     if (url) {
       rpcURLs.push(url);
     } else {
-      console.warn(
-        `Environment variable NODE_URL_${chainSubName.toUpperCase()} not set!`
-      );
+      SourcifyEventManager.trigger("Core.Error", {
+        message: `Environment variable NODE_URL_${chainSubName.toUpperCase()} not set!`,
+      });
     }
   }
 
@@ -69,9 +70,9 @@ function buildAlchemyAndCustomRpcURLs(
   }
 
   if (!alchemyId)
-    console.warn(
-      `Environment variable ALCHEMY_ID not set for ${chainName} ${chainSubName}!`
-    );
+    SourcifyEventManager.trigger("Core.Error", {
+      message: `Environment variable ALCHEMY_ID not set for ${chainName} ${chainSubName}!`,
+    });
 
   const domain = "g.alchemy.com";
   // No sepolia support yet
@@ -492,6 +493,14 @@ const sourcifyChains: SourcifyChainsObject = {
       `https://subnet-explorer-api.avax-test.network/v1.1/432201/` +
       AVALANCHE_SUBNET_SUFFIX,
   },
+  "432204": {
+    // Dexalot Mainnet
+    supported: true,
+    monitored: false,
+    contractFetchAddress:
+      `https://subnet-explorer-api.avax.network/v1.1/432204/` +
+      AVALANCHE_SUBNET_SUFFIX,
+  },
   "103090": {
     // Crystaleum Mainnet
     supported: true,
@@ -583,7 +592,27 @@ const sourcifyChains: SourcifyChainsObject = {
     monitored: false,
     contractFetchAddress: "https://blockscout.athens2.zetachain.com/" + BLOCKSCOUT_SUFFIX,
     txRegex: getBlockscoutRegex(),
-    rpc: ["https://archive.athens2.zetachain.com/evm"],
+  },
+  "42262": {
+    // Oasis Emerald Mainnet
+    supported: true,
+    monitored: false,
+    contractFetchAddress: "https://explorer.emerald.oasis.dev/" + BLOCKSCOUT_SUFFIX,
+    txRegex: getBlockscoutRegex(),
+  },
+  "42261": {
+    // Oasis Emerald Testnet
+    supported: true,
+    monitored: false,
+    contractFetchAddress: "https://testnet.explorer.emerald.oasis.dev/" + BLOCKSCOUT_SUFFIX,
+    txRegex: getBlockscoutRegex(),
+  },
+  "23295": {
+    // Oasis Sapphire Testnet
+    supported: true,
+    monitored: false,
+    contractFetchAddress: "https://testnet.explorer.sapphire.oasis.dev/" + BLOCKSCOUT_SUFFIX,
+    txRegex: getBlockscoutRegex(),
   },
   "101": {
     // ZetaChain: Development Testnet
