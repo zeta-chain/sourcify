@@ -22,7 +22,7 @@ services:
       - "${SERVER_EXTERNAL_PORT}:${SERVER_PORT}"
     volumes:
       - <<: *project-repository-mount
-        target: /home/data/repository
+        target: /mnt/efs/repository
       - type: bind
         source: $SOLC_REPO_HOST
         target: $SOLC_REPO
